@@ -1,0 +1,114 @@
+/* Abertura metálica: reflexos em SVG, textura e movimento em camadas. */
+.intro-scene{background:var(--cream)}
+.intro-background.metal-world{
+  --pointer-x:0;--pointer-y:0;
+  background:radial-gradient(ellipse at 48% 44%,#79658d 0%,#6c577f 47%,#503b62 100%);
+  isolation:isolate;overflow:hidden;
+}
+.metal-light{
+  position:absolute;inset:-20%;pointer-events:none;
+  background:radial-gradient(ellipse at 42% 40%,#c6a3e51c,transparent 52%);
+  transform:translate3d(calc(var(--pointer-x)*36px),calc(var(--pointer-y)*30px),0);
+  will-change:transform;
+}
+.metal-object{
+  position:absolute;aspect-ratio:1;pointer-events:none;
+  transform:translate3d(calc(var(--pointer-x)*var(--depth)),calc(var(--pointer-y)*var(--depth)),0) rotate(var(--rotation,0deg));
+  filter:drop-shadow(0 24px 28px #28173535);will-change:transform;
+}
+.metal-object svg{width:100%;height:100%;overflow:visible}
+.metal-float{width:100%;height:100%;animation:metal-drift 16s ease-in-out infinite alternate;will-change:transform}
+.metal-object-1{width:49vw;max-width:820px;left:-13%;top:-55%;--depth:-19px;--rotation:27deg}
+.metal-object-2{width:48vw;max-width:810px;right:-15%;top:-25%;--depth:25px;--rotation:-46deg}
+.metal-object-2 .metal-float{animation-delay:-6s;animation-duration:19s}
+.metal-object-3{width:47vw;max-width:780px;left:-18%;top:62%;--depth:27px;--rotation:114deg}
+.metal-object-3 .metal-float{animation-delay:-10s;animation-duration:18s}
+.metal-object-4{width:43vw;max-width:730px;right:-10%;top:63%;--depth:-22px;--rotation:-19deg}
+.metal-object-4 .metal-float{animation-delay:-3s;animation-duration:21s}
+.metal-object-5{width:17vw;max-width:260px;left:45%;top:-18%;--depth:12px;--rotation:20deg}
+.metal-pebble{border-radius:43% 57% 49% 51%;background:radial-gradient(ellipse at 28% 15%,#bfabce,#756083 35%,#493353 73%);box-shadow:inset 0 2px 8px #e1c9f328,inset -15px -19px 32px #28153350}
+.metal-grain{
+  position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.23;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch' seed='8'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23noise)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+  background-size:180px 180px;
+}
+.metal-world.is-asleep .metal-float,.intro-finished .metal-float{animation-play-state:paused}
+@keyframes metal-drift{from{transform:translate3d(-7px,-8px,0) rotate(-3deg)}to{transform:translate3d(12px,19px,0) rotate(5deg)}}
+
+/* Cada recorte mostra o PNG original; os arquivos de marca permanecem intactos. */
+.original-wordmark{
+  position:relative;display:block;width:min(100%,1320px);aspect-ratio:2067/700;
+  margin:0 auto;padding:0;font-size:inherit;letter-spacing:normal;line-height:1;
+}
+.logo-original,.logo-raster-rest,.logo-slice,.logo-slice>img{position:absolute;inset:0;width:100%;height:100%}
+.logo-original,.logo-slice>img{display:block;object-fit:contain;user-select:none;pointer-events:none}
+.original-wordmark .hero-b{
+  position:absolute;left:6.48283%;top:6.28571%;width:20.80310%;height:70.85714%;margin:0;visibility:hidden;
+}
+.brand-window{position:relative;display:block;overflow:hidden;clip-path:polygon(0 0,91% 0,91% 34%,100% 34%,100% 100%,0 100%)}
+.brand-window>img{position:absolute;max-width:none;width:480.69767%;height:141.12903%;left:-31.16279%;top:-8.87097%;user-select:none;pointer-events:none}
+.flying-brand.brand-window{position:fixed;left:0;top:0}
+.original-wordmark .logo-raster-rest{display:none}
+.original-wordmark .logo-raster-rest>.logo-slice{display:block;will-change:opacity,transform}
+.has-flying-brand .original-wordmark .logo-original{visibility:hidden}
+.has-flying-brand .original-wordmark .logo-raster-rest{display:block}
+.nav-b.brand-window{width:32px;height:37px;flex-shrink:0}
+.timeline-brand.brand-window{width:14px;height:16px}
+.footer-wordmark{display:block;width:clamp(250px,31vw,440px);line-height:0;font-size:0}
+.footer-wordmark img{display:block;width:100%;height:auto}
+.video-center>.video-logo{display:block;width:160px;height:auto;opacity:.4}
+.site-header{background:linear-gradient(115deg,rgba(137,76,241,.8),rgba(112,61,191,.65))}
+.film-section{background:var(--cream)}
+.video-placeholder{border:1px solid #d5c9dc;background:linear-gradient(180deg,#ebe4ef44,#fdffed)}
+.intro-guide{background:#d9cfe34a}
+.intro-scroll .scroll-cue-icon{color:#fff;border-color:#ffffff66}
+@media(max-width:760px){
+  .metal-object-1{width:105vw;left:-54%;top:-15%}
+  .metal-object-2{width:116vw;right:-62%;top:-8%}
+  .metal-object-3{width:105vw;left:-56%;top:74%}
+  .metal-object-4{width:106vw;right:-53%;top:76%}
+  .metal-object-5{width:34vw;left:37%;top:-10%}
+  .metal-object{--depth:12px}
+  .nav-b.brand-window{width:26px;height:30px}
+  .footer-wordmark{width:280px}
+  .video-center>.video-logo{width:105px}
+}
+@media(prefers-reduced-motion:reduce){
+  .original-wordmark .hero-b{visibility:hidden!important}
+  .metal-object,.metal-light{transform:none;will-change:auto}
+  .metal-float{animation:none!important;will-change:auto}
+}
+
+
+/* A mesma superfície sai da abertura e se torna o fundo do cabeçalho. */
+.metal-header-surface{
+  position:fixed;inset:0 0 auto;z-index:80;width:100%;
+  height:var(--metal-surface-height,100svh);overflow:hidden;pointer-events:none;visibility:hidden;
+  contain:layout paint;
+}
+.metal-header-surface.is-ready{visibility:visible}
+.has-morph-background.is-metal-header-docked .metal-header-surface{height:var(--header-height)}
+.has-morph-capability .intro-scene{min-height:0}
+.has-morph-background .intro{z-index:81}
+.has-morph-background .intro-scene{height:100svh;min-height:0;background:transparent}
+.has-morph-background .site-header{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+.has-morph-background .metal-header-surface>.metal-world{
+  position:absolute;inset:0;width:100%;height:100%;opacity:1;
+}
+.has-morph-background .metal-header-surface .metal-object{
+  transform:
+    translate3d(
+      calc(var(--pointer-x)*var(--depth)),
+      calc(var(--pointer-y)*var(--depth) + (var(--metal-shape-scale,1) - 1)*50%),
+      0
+    )
+    rotate(var(--rotation,0deg))
+    scale(var(--metal-shape-scale,1));
+}
+.has-morph-background.is-metal-header-docked .metal-header-surface .metal-float{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){
+  .metal-header-surface{display:none}
+  .has-morph-capability .site-header{
+    background:radial-gradient(ellipse at 48% 44%,#79658d 0%,#6c577f 47%,#503b62 100%);
+  }
+}

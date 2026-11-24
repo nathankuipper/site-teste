@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#894cf1">
+  <meta name="description" content="BiaBot. Inteligência para aproximar exames, decisões e cuidado. Conheça uma nova perspectiva para a rotina clínica.">
+  <title>BiaBot — Um novo olhar para o cuidado.</title>
+  <link rel="icon" href="assets/faviconV2_biabot.png" type="image/png">
+  <link rel="preload" as="image" href="assets/biabot_logo_white_v2.png">
+  <link rel="preload" href="fontes/inter/Inter-Variable.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fontes/onest/Onest-Variable.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="metallic.css">
+  <link rel="stylesheet" href="interface.css">
+  <link rel="stylesheet" href="preferences.css">
+  <script src="preferences.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="partners.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#inteligencia">Pular apresentação</a>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="metal-purple" gradientUnits="userSpaceOnUse" x1="40" y1="30" x2="540" y2="560">
+        <stop stop-color="#392c4b"/><stop offset=".17" stop-color="#9a83b4"/><stop offset=".28" stop-color="#5b4374"/><stop offset=".46" stop-color="#483259"/><stop offset=".64" stop-color="#a78bbf"/><stop offset=".76" stop-color="#d9c4ea"/><stop offset=".85" stop-color="#785792"/><stop offset="1" stop-color="#3e2c50"/>
+      </linearGradient>
+      <linearGradient id="metal-glint" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8eaff" stop-opacity="0"/><stop offset=".48" stop-color="#f8eaff" stop-opacity=".95"/><stop offset="1" stop-color="#d8b7ff" stop-opacity="0"/></linearGradient>
+      <filter id="metal-bevel" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="11" result="bump"/>
+        <feSpecularLighting in="bump" surfaceScale="30" specularConstant=".8" specularExponent="28" lighting-color="#f2e5ff" result="reflection"><fePointLight x="135" y="-35" z="210"/></feSpecularLighting>
+        <feComposite in="reflection" in2="SourceAlpha" operator="in" result="shine"/>
+        <feBlend in="SourceGraphic" in2="shine" mode="screen"/>
+      </filter>
+      <filter id="metal-glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2"/></filter>
+    </defs>
+    <symbol id="liquid-ring" viewBox="-30 -30 660 660">
+      <path fill="url(#metal-purple)" fill-rule="evenodd" filter="url(#metal-bevel)" d="M280 38C417 6 531 96 556 231C590 409 489 553 325 563C145 576 13 469 31 304C38 224 120 244 146 169C167 103 200 57 280 38ZM296 177C251 184 223 220 208 266C192 312 221 385 280 404C345 426 406 377 409 312C415 243 366 165 296 177Z"/>
+      <path d="M154 170C176 113 205 77 286 63C367 48 432 80 472 128" fill="none" stroke="url(#metal-glint)" stroke-width="3" stroke-linecap="round" opacity=".72" filter="url(#metal-glow)"/>
+      <path d="M361 532C432 513 495 456 521 381" fill="none" stroke="url(#metal-glint)" stroke-width="2" stroke-linecap="round" opacity=".6"/>
+      <ellipse cx="167" cy="146" rx="18" ry="1.7" fill="#fff3ff" opacity=".55" transform="rotate(-47 167 146)" filter="url(#metal-glow)"/>
+    </symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="arrow-diagonal" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="data-icon" viewBox="0 0 64 64"><path fill="currentColor" d="M32 5 4 19l28 14 28-14L32 5ZM5 29v10l27 14 27-14V29L32 43 5 29Zm0 17v8l27 14 27-14v-8L32 60 5 46Z" transform="translate(3 -2) scale(.9)"/></symbol>
+    <symbol id="privacy-icon" viewBox="0 0 64 64"><path fill="currentColor" fill-rule="evenodd" d="M32 12C18 12 7 22 2 32c5 10 16 20 30 20s25-10 30-20C57 22 46 12 32 12Zm0 8a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm0 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/></symbol>
+    <symbol id="trace-icon" viewBox="0 0 64 64"><path d="M12 14h24a14 14 0 0 1 0 28H25" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/><g fill="currentColor"><circle cx="12" cy="14" r="10"/><circle cx="21" cy="42" r="10"/><circle cx="52" cy="54" r="7"/></g></symbol>
+    <symbol id="access-icon" viewBox="0 0 64 64"><g fill="currentColor"><circle cx="25" cy="17" r="12"/><path d="M3 57v-5a22 22 0 0 1 44 0v5H3Z"/><path d="m47 22 5 5 9-10 3 4-12 14-9-9 4-4Z"/></g></symbol>
+  </svg>
+
+  <header class="site-header" id="site-header" inert aria-hidden="true">
+    <a class="nav-brand" href="#inicio" aria-label="BiaBot — início"><span class="nav-b brand-window" aria-hidden="true"><img src="assets/biabot_logo_white_v2.png" alt="" draggable="false" width="2067" height="700"></span><span class="nav-brand-dot"></span></a>
+    <nav class="desktop-nav" aria-label="Navegação principal"><a href="#inteligencia">A BiaBot</a><a href="#seguranca">Segurança</a><a href="#como-funciona">Como funciona</a></nav>
+    <a href="#comece" class="nav-cta"><span>Entrar</span><svg aria-hidden="true"><use href="#arrow-diagonal"/></svg></a>
+    <button class="menu-toggle magnetic" type="button" aria-label="Abrir menu" aria-controls="site-menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="site-menu" id="site-menu" aria-label="Menu completo" hidden>
+      <div class="menu-primary">
+        <div class="menu-preferences">
+          <p class="preference-label" id="language-title">Idioma</p>
+          <div class="language-options" role="group" aria-labelledby="language-title">
+            <button type="button" data-language="pt-BR" aria-pressed="true" lang="pt-BR">Português</button>
+            <button type="button" data-language="en" aria-pressed="false" lang="en">English</button>
+          </div>
+          <button class="color-mode-toggle" id="color-mode-toggle" type="button" aria-expanded="false" aria-controls="color-panel">
+            <span><span>Modo daltônico</span><small id="color-mode-status">Cores originais</small></span><span aria-hidden="true">‹</span>
+          </button>
+        </div>
+      </div>
+      <section class="color-panel" id="color-panel" aria-labelledby="color-panel-title" hidden>
+        <div class="color-panel-heading"><h2 id="color-panel-title">Cores acessíveis</h2><button type="button" id="close-color-panel" aria-label="Fechar configurações de cores">×</button></div>
+        <p class="color-panel-intro">Escolha a paleta que funciona melhor para você.</p>
+        <div class="color-options" role="radiogroup" aria-labelledby="color-panel-title">
+          <button class="color-option" type="button" role="radio" data-color-choice="protanopia" aria-checked="false" tabindex="-1"><span><strong>Protanopia</strong><small>Azul e amarelo</small><span class="palette-preview" aria-hidden="true" data-palette="protanopia"><i></i><i></i><i></i></span></span><span class="color-choice-check" aria-hidden="true">✓</span></button>
+          <button class="color-option" type="button" role="radio" data-color-choice="deuteranopia" aria-checked="false" tabindex="-1"><span><strong>Deuteranopia</strong><small>Azul e dourado</small><span class="palette-preview" aria-hidden="true" data-palette="deuteranopia"><i></i><i></i><i></i></span></span><span class="color-choice-check" aria-hidden="true">✓</span></button>
+          <button class="color-option" type="button" role="radio" data-color-choice="tritanopia" aria-checked="false" tabindex="-1"><span><strong>Tritanopia</strong><small>Vinho e turquesa</small><span class="palette-preview" aria-hidden="true" data-palette="tritanopia"><i></i><i></i><i></i></span></span><span class="color-choice-check" aria-hidden="true">✓</span></button>
+          <button class="color-option" type="button" role="radio" data-color-choice="achromatopsia" aria-checked="false" tabindex="-1"><span><strong>Acromatopsia</strong><small>Tons de cinza</small><span class="palette-preview" aria-hidden="true" data-palette="achromatopsia"><i></i><i></i><i></i></span></span><span class="color-choice-check" aria-hidden="true">✓</span></button>
+        </div>
+        <button class="reset-colors" type="button" id="reset-colors">Usar cores originais</button>
+      </section>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro" id="inicio" aria-labelledby="intro-title">
+      <div class="intro-scene">
+        <div class="intro-background metal-world" aria-hidden="true"><div class="metal-light"></div><div class="metal-object metal-object-1"><div class="metal-float"><svg viewBox="-30 -30 660 660" focusable="false"><use href="#liquid-ring"/></svg></div></div><div class="metal-object metal-object-2"><div class="metal-float"><svg viewBox="-30 -30 660 660" focusable="false"><use href="#liquid-ring"/></svg></div></div><div class="metal-object metal-object-3"><div class="metal-float"><svg viewBox="-30 -30 660 660" focusable="false"><use href="#liquid-ring"/></svg></div></div><div class="metal-object metal-object-4"><div class="metal-float"><svg viewBox="-30 -30 660 660" focusable="false"><use href="#liquid-ring"/></svg></div></div><div class="metal-object metal-object-5"><div class="metal-float metal-pebble"></div></div><div class="metal-grain"></div></div>
+        <div class="intro-center">
+          <h1 class="hero-wordmark original-wordmark" id="intro-title" aria-label="BiaBot"><img class="logo-original" src="assets/biabot_logo_white_v2.png" alt="" width="2067" height="700" fetchpriority="high" draggable="false"><span class="hero-b brand-window" aria-hidden="true"><img src="assets/biabot_logo_white_v2.png" alt="" draggable="false" width="2067" height="700"></span><span class="logo-rest logo-raster-rest" aria-hidden="true"><span class="logo-slice" style="clip-path:polygon(25.93130% 8.57143%,30.86599% 8.57143%,30.86599% 38.57143%,32.89792% 38.57143%,32.89792% 78.57143%,28.88244% 78.57143%,28.88244% 23.28571%,25.93130% 23.28571%);transform-origin:28.30189% 65%"><img src="assets/biabot_logo_white_v2.png" alt="" draggable="false" width="2067" height="700"></span><span class="logo-slice" style="clip-path:polygon(33.86551% 0.00000%,47.31495% 0.00000%,47.31495% 100.00000%,33.86551% 100.00000%);transform-origin:40.39671% 65%"><img src="assets/biabot_logo_white_v2.png" alt="" draggable="false" width="2067" height="700"></span><span class="logo-slice" style="clip-path:polygon(48.37929% 0.00000%,62.89308% 0.00000%,62.89308% 100.00000%,48.37929% 100.00000%);transform-origin:55.63619% 65%"><img src="assets/biabot_logo_white_v2.png" alt="" draggable="false" width="2067" height="700"></span><span class="logo-slice" style="clip-path:polygon(62.89308% 0.00000%,77.40687% 0.00000%,77.40687% 100.00000%,62.89308% 100.00000%);transform-origin:70.14998% 65%"><img src="assets/biabot_logo_white_v2.png" alt="" draggable="false" width="2067" height="700"></span><span class="logo-slice" style="clip-path:polygon(77.40687% 0.00000%,88.53411% 0.00000%,88.53411% 100.00000%,77.40687% 100.00000%);transform-origin:82.24480% 65%"><img src="assets/biabot_logo_white_v2.png" alt="" draggable="false" width="2067" height="700"></span><span class="logo-slice" style="clip-path:polygon(89.50169% 0.00000%,94.14611% 0.00000%,94.14611% 100.00000%,89.50169% 100.00000%);transform-origin:91.77552% 65%"><img src="assets/biabot_logo_white_v2.png" alt="" draggable="false" width="2067" height="700"></span></span></h1>
+        </div>
+        <p class="intro-connection" aria-hidden="true"><span>onde toda saúde se </span><span class="connection-emphasis">conecta</span></p>
+          <div class="intro-bottom"><a class="intro-scroll" href="#inteligencia" aria-label="Explorar apresentação"><span class="intro-scroll-label">Explorar</span><span class="scroll-cue-icon" aria-hidden="true">↓</span></a></div> 
+        <div class="intro-guide" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="intelligence section-shell" id="inteligencia" aria-label="Uma nova perspectiva para o cuidado">
+      <div class="carousel-intro reveal"><h2>Conheça a <span>BiaBot</span></h2></div>
+      <div class="carousel" role="region" aria-roledescription="carrossel" aria-label="O que move a BiaBot" tabindex="0">
+        <div class="slides">
+          <article class="slide slide-original is-active" role="group" aria-roledescription="slide" aria-label="1 de 3 — Transformamos exames em decisões clínicas">
+            <div class="original-art-wrap"><img class="original-art" src="assets/reference.jpg" alt="" width="1925" height="7776" fetchpriority="high"></div>
+            <div class="original-shimmer" aria-hidden="true"></div>
+            <div class="slide-content original-copy"><span class="slide-eyebrow">DO DADO À DECISÃO</span><h2>Transformamos<br>exames em<br>decisões clínicas.<br><em>Em segundos.</em></h2></div>
+            <p class="sr-only desktop-original-title">Transformamos exames em decisões clínicas. Em segundos.</p>
+          </article>
+          <article class="slide slide-connections" role="group" aria-roledescription="slide" aria-label="2 de 3 — Conexões que ampliam o olhar" aria-hidden="true" inert>
+            <div class="scene-art connections-art" aria-hidden="true"><span class="aurora aurora-one"></span><span class="aurora aurora-two"></span><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="orbit orbit-three"></span><span class="orb orb-one"></span><span class="orb orb-two"></span><span class="orb orb-three"></span><div class="scene-cross">+</div></div>
+            <div class="slide-content"><span class="slide-eyebrow">ALÉM DOS RESULTADOS</span><h2>Conexões que<br>ampliam o olhar.<br><em>E aproximam<br>o cuidado.</em></h2><p>Informação ganha contexto.<br>O profissional ganha perspectiva.</p></div>
+          </article>
+          <article class="slide slide-perspective" role="group" aria-roledescription="slide" aria-label="3 de 3 — Mais espaço para o que é humano" aria-hidden="true" inert>
+            <div class="scene-art perspective-art" aria-hidden="true"><span class="perspective-halo"></span><span class="ribbon ribbon-one"></span><span class="ribbon ribbon-two"></span><span class="ribbon ribbon-three"></span><div class="scene-spark">✳</div></div>
+            <div class="slide-content"><span class="slide-eyebrow">TECNOLOGIA COM PROPÓSITO</span><h2>Mais clareza.<br>Mais presença.<br><em>Mais espaço<br>para o humano.</em></h2><p>A inteligência apoia.<br>Quem cuida continua no centro.</p></div>
+          </article>
+        </div>
+        <div class="carousel-bottom"><div class="slide-pagination" role="group" aria-label="Escolher slide"><button class="slide-dot is-active" aria-label="Ir para slide 1" aria-current="true"><span>01</span><i></i></button><button class="slide-dot" aria-label="Ir para slide 2"><span>02</span><i></i></button><button class="slide-dot" aria-label="Ir para slide 3"><span>03</span><i></i></button></div><div class="carousel-actions"><button class="autoplay-toggle" type="button" aria-label="Pausar troca automática"><span aria-hidden="true">Ⅱ</span></button><button class="carousel-prev magnetic" type="button" aria-label="Slide anterior"><svg aria-hidden="true"><use href="#arrow"/></svg></button><button class="carousel-next magnetic" type="button" aria-label="Próximo slide"><svg aria-hidden="true"><use href="#arrow"/></svg></button></div></div>
+        <p class="sr-only" id="carousel-announcement" aria-live="polite" aria-atomic="true"></p>
+      </div>
+      <!-- <div class="carousel-footnote reveal"><p>Uma nova perspectiva para a rotina clínica.</p><a class="text-link" href="#como-funciona">Conheça o fluxo<svg aria-hidden="true"><use href="#arrow-diagonal"/></svg></a></div> -->
+    </section>
+
+    <section class="security care-background" id="seguranca" aria-labelledby="security-title">
+      <div class="wave wave-top" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 65C180 8 320 115 540 64S860 13 1080 65s240 45 360-5V120H0Z"/><path class="wave-secondary" d="M0 81C240 28 340 130 600 74s310-60 540-9 220 20 300 5v50H0Z"/></svg></div>
+      <div class="security-inner section-shell">
+        <div class="security-heading"><div class="reveal">
+          <h2 id="security-title"><br><span>Segurança & LGPD</span></h2>
+        </div>
+
+      </div>
+        <div class="security-grid">
+          <article class="security-feature reveal">
+            <div class="feature-icon">
+              <svg aria-hidden="true"><use href="#data-icon"/></svg>
+            </div>
+            <h3>Dados<br>sob cuidado.</h3>
+            <p>Uma experiência pensada para preservar informações sensíveis ao longo de todo o fluxo.</p>
+          </article>
+
+          <article class="security-feature reveal"><div class="feature-icon"><svg aria-hidden="true"><use href="#privacy-icon"/></svg></div><h3>Privacidade<br>por princípio.</h3><p>Respeito às pessoas e aos seus dados desde a concepção de cada interação.</p></article>
+
+          <article class="security-feature reveal"><div class="feature-icon"><svg aria-hidden="true"><use href="#trace-icon"/></svg></div><h3>Uma trilha<br>mais clara.</h3><p>Contexto e visibilidade para acompanhar o caminho da informação até a revisão.</p></article>
+
+          <article class="security-feature reveal"><div class="feature-icon"><svg aria-hidden="true"><use href="#access-icon"/></svg></div><h3>Acesso<br>com propósito.</h3><p>A informação certa para cada papel, mantendo o foco no que cada pessoa precisa.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="workflow section-shell" id="como-funciona" aria-labelledby="workflow-title">
+
+      <div class="workflow-heading reveal">
+        <span class="small-label"><span class="status-dot"></span>COMO FUNCIONA</span>
+        <h2 id="workflow-title">Do exame à decisão.<br><span>Em <span class="workflow-words"><span class="workflow-word">quatro</span> <span class="workflow-word">passos.</span></span></span></h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-rail" aria-hidden="true"><div class="timeline-fill"></div>
+        <div class="timeline-traveler">
+          <div class="timeline-splash" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="timeline-brand brand-window">
+            <img src="assets/biabot_logo_white_v2.png" alt="" draggable="false" width="2067" height="700">
+          </div><span></span>
+        </div>
+      </div>
+        <ol class="timeline-steps">
+          <li class="timeline-step is-current"><div class="step-dot"><span>01</span></div><div class="step-content"><span class="step-label">O PONTO DE PARTIDA</span><h3>Envie. Integre.<br>Deixe fluir.</h3><p>Adicione os exames e reúna as informações em um só lugar. Tudo pronto para o próximo passo.</p><svg class="step-arrow" aria-hidden="true"><use href="#arrow-diagonal"/></svg></div></li>
+          <li class="timeline-step"><div class="step-dot"><span>02</span></div><div class="step-content"><span class="step-label">INTELIGÊNCIA EM AÇÃO</span><h3>Os dados ganham<br>contexto.</h3><p>A IA relaciona resultados e histórico para destacar padrões e apoiar a análise profissional.</p><svg class="step-arrow" aria-hidden="true"><use href="#arrow-diagonal"/></svg></div></li>
+          <li class="timeline-step"><div class="step-dot"><span>03</span></div><div class="step-content"><span class="step-label">CLAREZA PARA AVANÇAR</span><h3>O que importa,<br>em evidência.</h3><p>Tendências, pontos de atenção e uma síntese estruturada tornam a revisão mais fluida.</p><svg class="step-arrow" aria-hidden="true"><use href="#arrow-diagonal"/></svg></div></li>
+          <li class="timeline-step"><div class="step-dot"><span>04</span></div><div class="step-content"><span class="step-label">O CUIDADO É HUMANO</span><h3>A decisão continua<br>com você.</h3><p>O profissional revisa, ajusta e decide. A tecnologia apoia; o olhar clínico conduz.</p><svg class="step-arrow" aria-hidden="true"><use href="#arrow-diagonal"/></svg></div></li>
+        </ol>
+      </div>
+
+    </section>
+
+    <section class="partners care-background" id="clinicas-parceiras" aria-labelledby="partners-title">
+      <div class="wave wave-top" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 65C180 8 320 115 540 64S860 13 1080 65s240 45 360-5V120H0Z"/><path class="wave-secondary" d="M0 81C240 28 340 130 600 74s310-60 540-9 220 20 300 5v50H0Z"/></svg></div>
+      <div class="partners-heading">
+        <h2 id="partners-title">Clínicas <span>parceiras</span></h2>
+        <p>confiado por clínicas de saúde</p>
+      </div>
+      <div class="partners-carousel" role="region" aria-roledescription="carrossel" aria-label="Clínicas parceiras">
+        <div class="partners-column partners-column-left" aria-hidden="true"></div>
+        <div class="partners-copy">
+          <span class="partners-eyebrow">CUIDADO QUE NOS CONECTA</span>
+          <h3 class="partners-name">Clínica Aurora</h3>
+          <div class="partners-controls">
+            <button class="partners-prev" type="button" aria-label="Clínica anterior">←</button>
+            <div class="partners-dots" role="group" aria-label="Escolher clínica"></div>
+            <button class="partners-next" type="button" aria-label="Próxima clínica">→</button>
+          </div>
+          <button class="partners-pause" type="button" aria-pressed="false">Pausar carrossel</button>
+          <p class="partners-disclaimer">Clínicas fictícias para demonstração.</p>
+          <p class="sr-only partners-announcement" aria-live="polite" aria-atomic="true"></p>
+        </div>
+        <div class="partners-column partners-column-right" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="film-section" id="filme" aria-label="Filme de apresentação da BiaBot">
+      <div class="video-placeholder reveal" role="img" aria-label="Área reservada para o futuro vídeo de apresentação da BiaBot, formato 16 por 9">
+        <div class="video-topline"><span><span class="status-dot"></span>FILME BIABOT</span><span>16:9</span></div>
+        <div class="video-center"><img class="video-logo" src="assets/biabot_logo_dark_v2.png" alt="" width="2070" height="700"><span>Uma nova perspectiva.<br>Em breve, em movimento.</span></div>
+        <div class="video-bottomline"><span>ESPAÇO RESERVADO PARA VÍDEO</span><span>↗</span></div>
+      </div>
+    </section>
+    <section class="start-section section-shell" id="comece" aria-labelledby="start-title">
+      <div class="start-card reveal">
+        <h2 id="start-title">Pronto para começar na <span>BiaBot?</span></h2>
+        <div class="start-actions">
+          <button class="start-button start-button-primary" type="button">Entrar na fila<svg aria-hidden="true"><use href="#arrow-diagonal"/></svg></button>
+          <button class="start-button start-button-secondary" type="button">Logar<svg aria-hidden="true"><use href="#arrow"/></svg></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer footer-color-shift" id="sobre">
+    <div class="footer-main section-shell"><div class="footer-brand-block"><a class="footer-wordmark" href="#inicio" aria-label="BiaBot — voltar ao início"><img src="assets/biabot_logo_white_v2.png" alt="" width="2067" height="700" loading="lazy"></a><p>Um novo olhar.<br>Infinitas possibilidades de cuidar.</p></div><div class="footer-links"><span>EXPLORE</span><a href="#inteligencia">A BiaBot<svg aria-hidden="true"><use href="#arrow-diagonal"/></svg></a><a href="#seguranca">Segurança & privacidade<svg aria-hidden="true"><use href="#arrow-diagonal"/></svg></a><a href="#como-funciona">Como funciona<svg aria-hidden="true"><use href="#arrow-diagonal"/></svg></a><a href="#filme">Nosso próximo capítulo<svg aria-hidden="true"><use href="#arrow-diagonal"/></svg></a></div><a href="#inicio" class="back-to-top magnetic" aria-label="Voltar ao início">↑</a></div>
+    <div class="footer-bottom section-shell"><span>© <span id="current-year">2026</span> BiaBot. Todos os direitos reservados.</span><span>INTELIGÊNCIA PARA O CUIDADO.</span><span>Feito para ir além.</span></div>
+  </footer>
+
+
+</body>
+</html>

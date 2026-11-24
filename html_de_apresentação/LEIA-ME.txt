@@ -1,0 +1,54 @@
+BIABOT — MODELO INTERATIVO
+
+COMO ABRIR
+Abra index.html com um navegador atualizado. Não é necessário instalar bibliotecas ou executar uma compilação. Todos os recursos visuais são locais.
+
+ARQUIVOS
+index.html: estrutura e textos.
+styles.css: layout, cores, ondas e cenas animadas.
+script.js: logo vinculada à rolagem, menu, carrossel, marcador e botões.
+metallic.css: abertura metálica com formas em SVG, textura e parallax de mouse.
+interface.css: ajustes finais da interface, indicadores, efeitos de entrada e cabeçalho.
+partners.js: carrossel de clínicas parceiras, com cinco identidades fictícias em assets/clinica-*.svg.
+fontes/: fontes locais Onest e Inter, com suas licenças.
+preferences.css e preferences.js: menu de idiomas e paletas alternativas, traduções locais e preferências salvas no navegador.
+assets/biabot_logo_white_v2.png e assets/biabot_logo_dark_v2.png: logos originais sem alterações nos arquivos.
+assets/faviconV2_biabot.png: favicon original.
+assets/reference.jpg: referência original fornecida, usada para preservar a primeira arte do carrossel.
+
+EDIÇÃO
+A chamada "onde toda saúde se conecta" permanece totalmente visível durante um trecho adicional de rolagem equivalente a 70% da altura da tela, antes de retomar a saída. Esse tempo afeta somente a frase: a transformação do cabeçalho avança continuamente e termina de forma independente.
+A seção Clínicas parceiras fica depois dos quatro passos e antes do vídeo. Seu fundo compartilha o degradê e as ondas animadas de Segurança & LGPD, inclusive nas paletas acessíveis. Seus índices usam o mesmo destaque elástico do carrossel principal. A seção usa as mesmas imagens nas duas colunas: a esquerda desce e a direita sobe. A clínica em destaque e o nome central ficam sincronizados. As imagens param por 2,5 segundos entre transições de 850 ms; esses tempos podem ser ajustados em HOLD_MS e TRANSITION_MS no partners.js. Há setas, seleção direta e botão de pausa. A troca automática pausa fora da tela, com a aba oculta, com a preferência de movimento reduzido ativa ou pelo botão de pausa. Mouse e foco nos controles não interrompem a reprodução. Os nomes e símbolos são fictícios para demonstração.
+O fundo metálico encolhe junto do B e passa a ser o próprio cabeçalho fixo. Ao voltar ao topo, a mesma superfície se expande novamente. Com movimento reduzido, a passagem é direta.
+A paleta está nas variáveis no início de styles.css: roxo #894CF1, lavanda #EBE4EF e bege #FDFFED.
+O fundo da segurança usa um degradê vertical de #EBE4EF para #FDFFED.
+As formas metálicas da abertura reagem ao mouse; os movimentos respeitam a preferência de movimento reduzido.
+O B e as letras usam recortes visuais do PNG original, sem editar ou redesenhar a imagem.
+Os números dos passos ficam visíveis desde o início; os textos ganham destaque à medida que o marcador passa.
+O carrossel corre continuamente, com 12 segundos por bloco. As setas centralizam o slide com uma transição suave. O botão de pausa e os gestos horizontais do touchpad também estão disponíveis.
+As duas cenas adicionais são desenhos feitos com CSS, editáveis e sem imagens externas.
+Para inserir o vídeo, procure .video-placeholder no index.html e substitua seu conteúdo por um elemento video com controls ou pelo código de incorporação. Nenhuma mídia está carregada neste modelo.
+
+O rodapé preserva o layout original e muda apenas a cor e a textura do fundo, do roxo ao metálico, conforme entra na tela. Com movimento reduzido, o fundo metálico aparece diretamente.
+
+No menu das três barrinhas, escolha Português ou English para traduzir o site. Modo daltônico abre um painel lateral com protanopia, deuteranopia, tritanopia e acromatopsia. Use cores originais restaura a paleta padrão. Idioma e cores ficam salvos somente neste navegador.
+
+O menu das três barrinhas contém apenas preferências. Cada linha de paleta é inteiramente clicável e tem destaque deslizante; as setas do teclado também alternam entre as quatro opções.
+
+Antes do carrossel, a chamada Conheça a BiaBot apresenta a seção. O fundo do rodapé mantém uma mistura mais roxa e reage suavemente ao mouse, respeitando a preferência de movimento reduzido; logo e links permanecem nas posições originais.
+
+A chamada final Pronto para começar na BiaBot? contém os botões Entrar na fila e Logar, decorativos por enquanto. O botão Entrar no cabeçalho leva até essa seção. Os textos dos quatro passos dão um pequeno salto quando ganham destaque.
+
+Ao entrar no topo do site, as letras da marca aparecem rapidamente da esquerda para a direita. Durante a transformação pela rolagem, a frase onde toda saúde se conecta entra no centro e depois desaparece. Com movimento reduzido, a frase aparece estática abaixo da logo.
+
+A frase da abertura e o título Conheça a BiaBot usam texto preto com as palavras conecta e BiaBot destacadas. O botão Explorar faz uma rolagem contínua de cerca de 2 segundos, sem pausas intermediárias; roda, toque ou teclas de navegação interrompem esse movimento.
+
+Ao concluir o percurso dos quatro passos, a bolinha emite um splash discreto com anéis e partículas. O efeito pode ocorrer novamente depois de voltar pelo percurso e concluí-lo outra vez; movimento reduzido desativa o splash.
+
+ACESSIBILIDADE
+Navegação por teclado, menu com foco controlado, controles de carrossel, gestos de toque e respeito a prefers-reduced-motion.
+A primeira arte fornecida é mantida na versão de computador; no celular o texto é recomposto em HTML para permanecer legível.
+
+ESCOPO
+Protótipo visual em HTML, CSS e JavaScript puro. Textos de segurança descrevem a proposta de design e devem ser validados contra as capacidades reais do produto antes da publicação.
+

@@ -1,0 +1,17 @@
+VERSÃO EXPERIMENTAL — BIABOT
+
+Abra index.html desta pasta para testar. A versão principal permanece na pasta acima.
+
+Mudanças nesta cópia:
+- Carrossel contínuo da direita para a esquerda, em blocos separados por um espaço, entrando e saindo pelas bordas da tela.
+- Cabeçalho mais compacto, que ganha roxo durante a transformação até chegar à cor #7138d8 da referência.
+- Botão Um novo olhar com mais contraste, contorno externo e leve elevação ao passar o mouse.
+- Menu com três barrinhas arredondadas.
+- Textos dos passos começam com 42% de opacidade e ficam totalmente visíveis quando o caminho chega; os números ficam visíveis desde o início.
+- Percurso começa mais tarde durante a rolagem. Ao navegar para Como funciona, o marcador começa entre os passos 1 e 2.
+
+O botão de pausa, as setas e a navegação por teclado continuam disponíveis.
+O movimento automático respeita a preferência do dispositivo por reduzir animações.
+
+Ajustes visuais específicos: experimental.css.
+Velocidade do carrossel: slideDuration, em script.js (12000 = 12 segundos por slide).

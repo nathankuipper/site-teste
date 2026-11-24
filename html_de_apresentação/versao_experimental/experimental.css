@@ -1,0 +1,182 @@
+/* Alterações isoladas para avaliar antes de levar à versão principal. */
+
+/* Convite centralizado para explorar, com uma aproximação suave da abertura. */
+.intro-bottom{justify-content:center;align-items:center}
+.intro-scroll{
+  display:inline-flex;flex-direction:column;align-items:center;gap:12px;
+  color:#fff;padding:8px 16px;border-radius:28px;
+}
+.intro-scroll-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+.intro-scroll:focus-visible{outline-color:#fff;outline-offset:4px}
+.intro-center{scale:1;transition:scale .7s cubic-bezier(.22,1,.36,1)}
+.flying-brand-zoom{
+  position:fixed;inset:0 0 auto;width:100%;height:100svh;z-index:100;
+  pointer-events:none;transform:scale(1);transform-origin:50% 49%;
+  transition:transform .7s cubic-bezier(.22,1,.36,1);
+}
+.is-intro-exploring .intro-center{scale:1.02}
+.is-intro-exploring .flying-brand-zoom{transform:scale(1.02)}
+.has-morph-background .metal-header-surface>.metal-world{
+  transform:scale(1);transform-origin:50% 50%;
+  transition:transform .7s cubic-bezier(.22,1,.36,1);
+}
+.is-intro-exploring .metal-header-surface>.metal-world{transform:scale(1.035)}
+
+/* Os slides avançam continuamente para a esquerda, sem transição de opacidade. */
+.intelligence{max-width:none;padding-inline:0;overflow-x:clip}
+.intelligence>.carousel.carousel-continuous{
+  --card-width:min(84vw,1056px);--card-gap:clamp(18px,2.5vw,36px);
+  width:100%;max-width:none;margin-inline:0;
+  height:calc(min(84vw,1056px)*9/16 + 72px);aspect-ratio:auto;
+  border-radius:0;background:transparent;color:var(--ink);overflow:hidden;
+}
+.carousel-continuous .slides{
+  display:flex;gap:var(--card-gap);width:calc(var(--card-width) + var(--card-gap));
+  top:0;bottom:72px;right:auto;will-change:transform;
+}
+.carousel-continuous .slide{
+  position:relative;inset:auto;flex:0 0 var(--card-width);min-width:0;
+  height:100%;opacity:1;transition:none;z-index:auto;border-radius:20px;
+  color:white;container-type:inline-size;
+}
+.carousel-continuous .carousel-bottom{left:var(--page-gutter);right:var(--page-gutter);bottom:8px}
+.carousel-continuous .slide-pagination{position:relative;isolation:isolate;gap:4px}
+.carousel-continuous .pagination-highlight{
+  content:"";position:absolute;z-index:1;top:50%;left:0;margin-top:-4px;
+  width:28px;height:8px;border-radius:999px;background:var(--purple);pointer-events:none;
+  transform:translateX(8px);transform-origin:left center;
+}
+.carousel-continuous .slide-dot{
+  justify-content:center;gap:0;min-width:44px;min-height:44px;padding:10px;
+  color:var(--purple-deep);opacity:1;border-radius:999px;
+}
+.carousel-continuous .slide-dot>span{display:none}
+.carousel-continuous .slide-dot i{
+  width:8px;height:8px;border-radius:999px;background:#7138d83d;
+  transition:background-color .25s;
+}
+.carousel-continuous .slide-dot.is-active i{width:8px;background:#7138d83d}
+.carousel-continuous .slide-dot:hover i{background:#7138d85c}
+.carousel-continuous .slide-dot:focus-visible{outline:2px solid var(--purple);outline-offset:0}
+.carousel-continuous .slide-dot.is-active i::after{content:none}
+.carousel-continuous .carousel-actions button{color:var(--purple-deep);border-color:#7138d84d}
+.carousel-continuous .carousel-actions button:hover{background:#7138d812}
+.carousel-continuous .slide-dot.is-active i::after{animation:none}
+
+/* O roxo predomina, preservando um vestígio das formas e da textura metálicas. */
+.metal-header-surface::after{
+  content:"";position:absolute;inset:0;z-index:5;
+  background:#7138d8;opacity:calc(var(--header-purple-progress,0)*.88);pointer-events:none;
+}
+/* Recorta uma camada estável em vez de redimensionar os SVGs a cada quadro. */
+.has-morph-background .metal-header-surface,
+.has-morph-background.is-metal-header-docked .metal-header-surface{
+  height:100svh;
+  opacity:calc(1 - var(--header-purple-progress,0)*.08);
+  clip-path:inset(0 0 calc(100svh - var(--metal-surface-height,100svh)) 0);
+  will-change:clip-path;
+}
+.has-morph-background .metal-header-surface::after{will-change:opacity}
+.is-morphing .metal-header-surface .metal-float{animation-play-state:paused}
+.flying-brand.brand-window{backface-visibility:hidden}
+/* O conteúdo que passa por baixo fica desfocado, sem afetar os links. */
+.has-morph-capability .site-header.is-visible{
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+
+/* O percurso ganha um pequeno trecho antes do primeiro ponto. */
+.timeline-rail{left:-32px}
+.has-morph-capability .timeline-step .step-content{opacity:.42;transition:opacity .45s ease,border-color .5s,transform .5s}
+.has-morph-capability .timeline-step.is-reached .step-content{opacity:1}
+.timeline-step .step-dot{opacity:1}
+
+/* Ícones entram em sequência junto da revelação dos cartões de segurança. */
+.security-feature{--icon-delay:.08s}
+.security-feature:nth-child(2){--icon-delay:.24s}
+.security-feature:nth-child(3){--icon-delay:.40s}
+.security-feature:nth-child(4){--icon-delay:.56s}
+.js-reveal .security-feature .feature-icon svg{
+  opacity:0;transform:translateY(12px) scale(.72) rotate(-10deg);
+  transform-origin:50% 65%;
+}
+.js-reveal .security-feature.is-revealed .feature-icon svg{
+  animation:security-icon-enter .46s cubic-bezier(.22,1,.36,1) var(--icon-delay) both;
+}
+@keyframes security-icon-enter{
+  0%{opacity:0;transform:translateY(12px) scale(.72) rotate(-10deg)}
+  65%{opacity:1;transform:translateY(-3px) scale(1.07) rotate(2deg)}
+  100%{opacity:1;transform:translateY(0) scale(1) rotate(0deg)}
+}
+.workflow-words,.workflow-word{display:inline-block}
+.js-reveal .workflow-word{opacity:0;transform:translateY(12px) scale(.92);transform-origin:50% 70%}
+.js-reveal .workflow-words.is-revealed .workflow-word{
+  animation:workflow-word-enter .5s cubic-bezier(.22,1,.36,1) .08s both;
+}
+.js-reveal .workflow-words.is-revealed .workflow-word:nth-child(2){animation-delay:.24s}
+@keyframes workflow-word-enter{
+  0%{opacity:0;transform:translateY(12px) scale(.92)}
+  65%{opacity:1;transform:translateY(-2px) scale(1.025)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* Cabeçalho compacto e chamada com destaque, contorno e elevação suaves. */
+:root{--header-height:64px}
+.site-header{padding-block:10px}
+.nav-cta{
+  position:relative;background:#ffffffeb;color:#6330ba;border-color:#fff;
+  font-weight:600;box-shadow:0 3px 12px #31125c1a;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.nav-cta::after{
+  content:"";position:absolute;inset:-5px;border:1px solid #ffffffb3;
+  border-radius:inherit;opacity:0;transform:scale(.97);pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease;
+}
+.nav-cta:hover,.nav-cta:focus-visible{transform:translateY(-3px);box-shadow:0 6px 18px #31125c2b}
+.nav-cta:hover::after,.nav-cta:focus-visible::after{opacity:1;transform:scale(1)}
+.menu-toggle{gap:5px}
+.menu-toggle span,.menu-toggle span:last-child{width:25px;height:3px;border-radius:999px;align-self:center}
+/* Menu suspenso branco com o tamanho, os cantos e o movimento da referência. */
+.site-header .site-menu{
+  position:absolute;inset:auto;top:calc(100% + 12px);right:var(--page-gutter);
+  width:min(300px,calc(100% - 48px));max-height:calc(100svh - var(--header-height) - 36px);
+  margin:0;padding:10px;overflow-y:auto;border:1px solid #e5dfed;border-radius:18px;
+  background:#fff;color:#261e38;box-shadow:0 16px 50px #261e3820;
+  backdrop-filter:none;-webkit-backdrop-filter:none;
+}
+.site-header .site-menu[hidden]{display:none}
+.menu-toggle[aria-expanded="true"]{background:#ffffff18;border-radius:10px}
+.site-menu .menu-links{position:relative;isolation:isolate;display:flex;flex-direction:column}
+.site-menu .menu-links::before{
+  content:"";position:absolute;left:0;top:0;width:var(--menu-width,0px);height:var(--menu-height,0px);
+  border-radius:10px;background:#f2edfa;pointer-events:none;
+  transform:translate(var(--menu-x,0px),var(--menu-y,0px));
+  transition:var(--menu-transition,transform .38s cubic-bezier(.22,1,.36,1),width .38s cubic-bezier(.22,1,.36,1),height .38s cubic-bezier(.22,1,.36,1));
+}
+.site-menu .menu-links a{
+  position:relative;z-index:1;display:flex;align-items:center;min-height:44px;
+  padding:8px 16px;border:0;border-radius:10px;font-size:.85rem;font-weight:500;
+  letter-spacing:normal;line-height:1.65;color:inherit;transition:color .2s;
+}
+.site-menu .menu-links a:hover,.site-menu .menu-links a[aria-current]{color:#7138d8}
+.site-menu .menu-links a:focus-visible{outline:3px solid #7138d8;outline-offset:-3px}
+@media(max-width:760px){
+  .flying-brand-zoom{transform-origin:50% 46%}
+  .intelligence>.carousel.carousel-continuous{height:calc(84vw*5/4 + 72px)}
+  .carousel-continuous .slide{border-radius:16px}
+  :root{--header-height:60px}
+  .site-header{padding-block:8px}
+  .timeline-rail{left:20px;top:-20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .has-morph-capability .site-header{background:#7138d8eb}
+  .has-morph-capability .timeline-step .step-content{opacity:1;transition:none}
+  .nav-cta,.nav-cta::after{transition:none}
+  .nav-cta:hover,.nav-cta:focus-visible{transform:none}
+  .site-menu .menu-links::before{transition:none}
+  .js-reveal .security-feature .feature-icon svg{opacity:1;transform:none;animation:none}
+  .has-morph-background .metal-header-surface>.metal-world{transform:none;transition:none}
+  .intro-center{scale:1;transition:none}
+  .flying-brand-zoom{transform:none;transition:none}
+  .js-reveal .workflow-word{opacity:1;transform:none;animation:none}
+}
